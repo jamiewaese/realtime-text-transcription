@@ -13,7 +13,7 @@
     recognition.onresult = function(event){
         results = '';
         for (let i of event.results) {
-            results += '<p>' + i[0].transcript + '<p>';
+            results += '<p class="message">' + i[0].transcript + '<p>';
         }
         if (results != previousTranscript) output.innerHTML = prefix + results;
         else console.log('not printing because', results, '=', previousTranscript);
@@ -24,7 +24,7 @@
     
     recognition.onend = function() {
         console.log("Speech recognition ended, starting again with prefix");
-        prefix = results + '<br>';
+        prefix = results;
         recognition.start();
     };
     setInterval(function() {
