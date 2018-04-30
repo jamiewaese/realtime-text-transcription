@@ -8,16 +8,12 @@
     recognition.interimResults = true;
     
     let prefix = '';
-    
-    recognition.onstart = function() {
-      console.log("Recognition started");
-    };
     let previousTranscript = '';
     let results = '';
     recognition.onresult = function(event){
         results = '';
         for (let i of event.results) {
-            results += i[0].transcript;
+            results += '<br>' + i[0].transcript;
         }
         if (results != previousTranscript) output.innerHTML = prefix + results;
         else console.log('not printing because', results, '=', previousTranscript);
@@ -28,7 +24,7 @@
     
     recognition.onend = function() {
         console.log("Speech recognition ended, starting again with prefix");
-        prefix = results + ' ';
+        prefix = results + '<br>';
         recognition.start();
     };
     
