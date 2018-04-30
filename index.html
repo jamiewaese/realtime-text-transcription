@@ -1,0 +1,41 @@
+<span id="output">
+    
+</span>
+<script>
+    let output = document.getElementById('output')
+    let recognition = new webkitSpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    
+    let prefix = '';
+    
+    recognition.onstart = function() {
+      console.log("Recognition started");
+    };
+    let previousTranscript = '';
+    let results = '';
+    recognition.onresult = function(event){
+        results = '';
+        for (let i of event.results) {
+            results += i[0].transcript;
+        }
+        if (results != previousTranscript) output.innerHTML = prefix + results;
+        else console.log('not printing because', results, '=', previousTranscript);
+    };
+    recognition.onerror = function(e) {
+        console.log("Error", e);
+    };
+    
+    recognition.onend = function() {
+        console.log("Speech recognition ended, starting again with prefix");
+        prefix = results + ' ';
+        recognition.start();
+    };
+    
+    function start_speech() {
+      recognition.lang = 'en-IN'; // 'en-US' works too, as do many others
+      recognition.start();
+    }
+    start_speech();
+</script>
+

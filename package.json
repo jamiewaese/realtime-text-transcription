@@ -1,0 +1,24 @@
+{
+  "name": "realtime-text-transcription",
+  "version": "0.0.0",
+  "description": "A simple webpage that transcribes everything you say in real time",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/squishybanana04/realtime-text-transcription.git"
+  },
+  "author": "Alex Waese-Perlman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/squishybanana04/realtime-text-transcription/issues"
+  },
+  "homepage": "https://github.com/squishybanana04/realtime-text-transcription#readme"
+}
