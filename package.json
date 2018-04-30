@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/squishybanana04/realtime-text-transcription/issues"
   },
-  "homepage": "https://github.com/squishybanana04/realtime-text-transcription#readme"
+  "homepage": "https://github.com/squishybanana04/realtime-text-transcription#readme",
+  "engines": {
+    "node": "6.14.1"
+  }
 }
