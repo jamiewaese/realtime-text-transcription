@@ -13,7 +13,7 @@
     recognition.onresult = function(event){
         results = '';
         for (let i of event.results) {
-            results += '<br>' + i[0].transcript;
+            results += '<p>' + i[0].transcript + '<p>';
         }
         if (results != previousTranscript) output.innerHTML = prefix + results;
         else console.log('not printing because', results, '=', previousTranscript);
@@ -27,7 +27,14 @@
         prefix = results + '<br>';
         recognition.start();
     };
-    
+    setInterval(function() {
+        try {
+            recognition.start();
+            console.log('Starting up')
+        } catch(e) {
+            console.log('Already running');
+        }
+    }, 1000)
     function start_speech() {
       recognition.lang = 'en-IN'; // 'en-US' works too, as do many others
       recognition.start();
